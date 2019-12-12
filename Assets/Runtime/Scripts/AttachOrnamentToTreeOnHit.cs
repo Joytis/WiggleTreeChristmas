@@ -15,8 +15,6 @@ public class AttachOrnamentToTreeOnHit : MonoBehaviour
         // Only attach if we hit the christmas tree. 
         if(other.gameObject.layer != LayerMask.NameToLayer("ChristmasTree")) return;
 
-        var contact = collision.contacts[0];
-
         // Just make a joint and add our object to the tree.
         var newJoint = other.gameObject.AddComponent<FixedJoint>();
         // attach us!
