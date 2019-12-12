@@ -20,9 +20,9 @@ public class @InputMaster : IInputActionCollection, IDisposable
             ""actions"": [
                 {
                     ""name"": ""aim"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""cde288ec-b541-491d-a615-c45de621ba87"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -32,7 +32,7 @@ public class @InputMaster : IInputActionCollection, IDisposable
                     ""id"": ""1acadfdf-4604-4218-a920-b14d505f3ee9"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 }
             ],
             ""bindings"": [
