@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -953,9 +953,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463aa3684b2a2ef48b5dcb81b7bee997, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 1682857328}
-  _gameSceneName: GameScene
-  _canvas: {fileID: 1682857323}
 --- !u!1 &1682857323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1035,7 +1032,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!224 &1682857327
 RectTransform:

@@ -16,6 +16,8 @@ public class GameState : MonoBehaviour
         }
     }
 
+    public const string HighScoreName = "HighScore";
+
     [Title("DisableThings")]
     [SerializeField] List<MonoBehaviour> _enablableSubsystems = null;
     [SerializeField] GameObject _crosshair = null;
@@ -24,6 +26,9 @@ public class GameState : MonoBehaviour
     [SerializeField] List<DoAnimation> _animationsAtStart = null;
 
     [Title("Game Components")]
+    [SerializeField] GameObject _winScreen = null;
+    [SerializeField] GameObject _loseScreen = null;
+
     [SerializeField] RaiseOnCollision _starCollision = null;
     [SerializeField] SimpleTimer _timer = null;
     [SerializeField] float _gameTime = 15f;
@@ -39,7 +44,11 @@ public class GameState : MonoBehaviour
     bool _starCollided = false;
 
     void OnStarCollision() => _starCollided = true;
-    void Awake() => _starCollision.CollidedWithThing += OnStarCollision;
+    void Awake() {
+        _starCollision.CollidedWithThing += OnStarCollision;
+        _winScreen.SetActive(false);
+        _loseScreen.SetActive(false);
+    } 
 
     IEnumerator Start() {
         yield return DoGame();
@@ -93,13 +102,6 @@ public class GameState : MonoBehaviour
     // }
 
     IEnumerator DoGame() {
-        // Get rid of old scene. 
-        // Debug.Log("Playing slide out");
-        // yield return MainMenuScript.Instance.PlaySlideOut();
-
-        Debug.Log("Starting game.");
-        // Initialize systems. 
-        // UnloadOldScene();
         SetEnabledForSubsystems(false);
         _timer.CurrentTime = _gameTime;
 
@@ -130,14 +132,21 @@ public class GameState : MonoBehaviour
         SetEnabledForSubsystems(false);
 
         // Wait for a second!
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.5f);
 
         // If it was the star, we lose. If it was the timer, we.. win?
         if(firstCoroutine == timerCoroutine) {
-            Debug.Log("Win!");
+            // Check for high score. 
+            var highScore = PlayerPrefs.GetInt(HighScoreName, 0);
+            if(CurrentScore > highScore) {
+                PlayerPrefs.SetInt(HighScoreName, CurrentScore);
+            }
+
+            // Show win screen. 
+            _winScreen.SetActive(true);
         }
         else if(firstCoroutine == starCollision) {
-            Debug.Log("Lose!");
+            _loseScreen.SetActive(true);
         }
     }
 }

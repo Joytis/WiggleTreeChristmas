@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MainMenuScript : MonoBehaviour
 {
@@ -12,16 +14,43 @@ public class MainMenuScript : MonoBehaviour
         }
     }
 
-    // [SerializeField] Animator _animator = null;
+    [SerializeField] Animator _animator = null;
 
-    // void Awake() => DontDestroyOnLoad(gameObject);
+    const string GameScene = "GameScene";
+    const string StartingScene = "StartupScene";
 
-    // public IEnumerator PlaySlideIn() {
-    //     Debug.Log("Playing slide out");
-    //     yield return _animator.PlayAndWait("SlideIn");
-    // }
+    bool _loading = false;
 
-    // public IEnumerator PlaySlideOut() {
-    //     yield return _animator.PlayAndWait("SlideOut");
-    // }
+    void Awake() => _instance = this;
+
+    IEnumerator LoadScene(string scene) {
+        // Load scene. 
+        Scene currentScene = SceneManager.GetActiveScene();
+        yield return SceneManager.LoadSceneAsync(scene, LoadSceneMode.Additive);
+        // Change active scene. 
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName(scene));
+        yield return SceneManager.UnloadSceneAsync(currentScene);
+    }
+
+    public void LoadGame() {
+        if(_loading) throw new InvalidOperationException("Already loading");
+        IEnumerator Internal() {
+            _loading = true;
+            yield return LoadScene(GameScene);
+            yield return _animator.PlayAndWait("SlideOut");
+            _loading = false;
+        }
+        StartCoroutine(Internal());
+    }
+
+    public void LoadMainMenu() {
+        if(_loading) throw new InvalidOperationException("Already loading");
+        IEnumerator Internal() {
+            _loading = true;
+            yield return _animator.PlayAndWait("SlideIn");
+            yield return LoadScene(StartingScene);
+            _loading = false;
+        }
+        StartCoroutine(Internal());
+    }
 }
