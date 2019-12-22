@@ -8,14 +8,17 @@ public class ShootOnClick : MonoBehaviour
     [SerializeField] GameObject _thingToShoot = null;
     [SerializeField] float _velocity = 4f;
     Camera _cam = null;
+    Camera Cam {
+        get {
+            if(_cam == null) _cam = Camera.main;
+            return _cam;
+        }
+    }
 
     Vector2 _currentAim = Vector2.zero;
     InputMaster _input = null;
 
-    void Awake() {
-        _cam = Camera.main;
-        _input = new InputMaster();
-    } 
+    void Awake() => _input = new InputMaster();
 
     void OnEnable() {
         _input.Enable();
@@ -34,8 +37,8 @@ public class ShootOnClick : MonoBehaviour
     }
 
     public void OnShoot(InputAction.CallbackContext ctx) {
-        var point = _cam.ScreenToWorldPoint(new Vector3(_currentAim.x, _currentAim.y, _cam.nearClipPlane));
-        var direction = (point - _cam.transform.position).normalized;
+        var point = Cam.ScreenToWorldPoint(new Vector3(_currentAim.x, _currentAim.y, Cam.nearClipPlane));
+        var direction = (point - Cam.transform.position).normalized;
 
         var newOrnament = Instantiate(_thingToShoot, point, Quaternion.identity);
         var rigidbody = newOrnament.GetComponent<Rigidbody>();

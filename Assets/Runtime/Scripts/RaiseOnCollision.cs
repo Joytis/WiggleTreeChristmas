@@ -9,8 +9,8 @@ public class RaiseOnCollision : MonoBehaviour {
     public event Action CollidedWithThing;
 
     void OnCollisionEnter(Collision collision) {
-        var other = collision.rigidbody;
-        var layer = 1 << other.gameObject.layer;
+        var other = collision.gameObject;
+        var layer = 1 << other.layer;
 
         if((_mask.value & layer) == layer) {
             CollidedWithThing?.Invoke();

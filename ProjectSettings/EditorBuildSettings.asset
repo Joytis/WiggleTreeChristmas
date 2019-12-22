@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Runtime/Scenes/TreeSceneSEtup.unity
+    path: Assets/Runtime/Scenes/StartupScene.unity
+    guid: aa281be164f30d440a137727de899fca
+  - enabled: 1
+    path: Assets/Runtime/Scenes/MainMenu.unity
+    guid: 23664de6fc03f8949af859c01b303bc5
+  - enabled: 1
+    path: Assets/Runtime/Scenes/GameScene.unity
     guid: 6957fe0a5652cd54887d8dfd306e93ce
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: c5a0f8f886bd1bb43b8ea3dd6efdc67a,

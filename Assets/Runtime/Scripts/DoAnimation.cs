@@ -10,13 +10,5 @@ public class DoAnimation : MonoBehaviour {
 
     void Awake() => _animation = GetComponent<Animator>();
 
-    public IEnumerator PlayAndWait() {
-        _animation.Play(_name);
-
-        //Wait until we enter the current state
-        _animation.Update(0f);
-        while (_animation.GetCurrentAnimatorStateInfo(0).IsName(_name)) {
-            yield return null;
-        }
-    }
+    public IEnumerator PlayAndWait() => _animation.PlayAndWait(_name);
 }
