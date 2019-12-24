@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8e97420fe52f7449466f58cba7ac45, type: 3}
+  m_Name: OrnamentLib
+  m_EditorClassIdentifier: 
+  _ornaments:
+  - {fileID: 11400000, guid: 2ea6dd8df990aad41a5cf814ebee709b, type: 2}
+  - {fileID: 11400000, guid: c7c9110d2bbba82428b1ffe2954d24bc, type: 2}
+  - {fileID: 11400000, guid: 1a44d423ab784df409180e55f9528e28, type: 2}
+  - {fileID: 11400000, guid: b8447479ae9cd7140ad3d178f2212be9, type: 2}
+  - {fileID: 11400000, guid: c0fc7ca3bdfa2ca40abed8f24614fdad, type: 2}
+  - {fileID: 11400000, guid: 318339bc1a00b054f8bc0cdaa6faef2f, type: 2}
+  - {fileID: 11400000, guid: 6c24b6e76e81fb745baac79d675faf3d, type: 2}
+  - {fileID: 11400000, guid: 18da8283a8a762c4fb3941bc6fdc9567, type: 2}
+  - {fileID: 11400000, guid: b0b177ad108914743a05b4766b76255d, type: 2}
+  - {fileID: 11400000, guid: 4518f45b95eb4054e8e8f71c162b0b04, type: 2}
+  _prefab: {fileID: 4863335438436389110, guid: 692c011b58320874a9017a30a7eaa161, type: 3}

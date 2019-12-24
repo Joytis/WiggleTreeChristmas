@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b4d5d3c90ce32242a81e0d8f627f937, type: 3}
+  m_Name: BoxThumpSFX
+  m_EditorClassIdentifier: 
+  _clips:
+  - {fileID: 8300000, guid: dc56bd56c31168d40b066f47e85ffdde, type: 3}
+  - {fileID: 8300000, guid: d4f784972c5782a46a05fd41f83e46a7, type: 3}
+  - {fileID: 8300000, guid: f8b7911b5d991074f862565e20aa2dab, type: 3}
+  - {fileID: 8300000, guid: 3f00e45f6befe1549a073fbf563bec23, type: 3}
+  - {fileID: 8300000, guid: e0a2dafc5f1cc93498abde48c7dfc828, type: 3}
+  - {fileID: 8300000, guid: 426905479536da048ba36f35544873b0, type: 3}
+  - {fileID: 8300000, guid: b140d6abdb150d44a9d63b382019c812, type: 3}
